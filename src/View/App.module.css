@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.app_page {
+  /* height: 100vh; */
+  width: 50%;
+  margin: 0 auto;
+  /* background-color: antiquewhite; */
+  padding: 30px 0 80px;
+  text-align: center;
+}
+
+.form_addPost {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0 0 0;
+  gap: 8px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.form_addPost input[type="text"],
+.form_addPost select {
+  padding: 3px 16px;
+  border: 1px solid rgb(220, 220, 220);
+  background-color: rgb(246, 246, 246);
+  border-radius: 16px;
+}
+
+.modalCloseBtn {
+  background: none;
+  cursor: pointer;
+  border: none;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  letter-spacing: 4px;
+  opacity: 0.3;
+  padding: 4px 14px;
+  font-size: 16px;
+
+  transition: all 0.5s;
+}
+
+.modalCloseBtn:hover {
+  background: rgb(227, 227, 227);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background-color: rgb(238, 238, 238);
+  border: 1px solid rgb(173, 173, 173);
+  font-size: 12px;
+  padding: 2px 5px;
+  border-radius: 8px;
+  color: rgb(134, 134, 134);
+}
+
+.tagRemoveBtn {
+  cursor: pointer;
+}
+
+.form_titlePost > input {
+  width: 100%;
+}
+
+.form_titleErrorMessage {
+  font-size: 12px;
+  color: red;
+  text-align: start;
+  padding: 2px 0 0 3px;
+}

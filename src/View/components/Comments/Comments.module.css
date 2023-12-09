@@ -1,0 +1,73 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.authorComment {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgb(244, 218, 185);
+  padding: 4px 8px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+}
+
+.authorAva {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: red;
+  display: inline-block;
+}
+
+.authorName {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgb(134, 134, 134);
+  display: inline;
+  text-decoration: underline;
+}
+
+.likeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  justify-content: space-between;
+  width: 95%;
+  gap: 12px;
+  background-color: rgb(244, 218, 185);
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.likePost {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actionBtns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actionBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.message {
+  font-size: 12px;
+  font-style: italic;
+}

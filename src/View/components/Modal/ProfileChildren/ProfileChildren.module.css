@@ -1,0 +1,51 @@
+.wrapper {
+  margin-top: 14px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+}
+
+.info {
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info_line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.info p {
+  font-size: 11px;
+  color: rgb(150, 150, 150);
+}
+
+.info span {
+  font-size: 16px;
+  color: rgb(52, 52, 52);
+  margin-left: 5px;
+}
+
+.avatarWrapper {
+  position: relative;
+}
+
+.editAvatarBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 1px;
+  right: 2px;
+}
+
+.editBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
