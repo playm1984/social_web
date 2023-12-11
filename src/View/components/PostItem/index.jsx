@@ -17,14 +17,19 @@ const PostItem = ({ post }) => {
 
   const createNewComment = (event) => {
     if (event.keyCode === 13) {
-      const comment = {
-        id: new Date().getTime(),
-        authorComment: "Max",
-        message: valueComment,
-        like: false,
-      };
-      dispatch(addNewComment({ comment, idPost: post.id }));
-      setIsCreateComment(!isCreateComment);
+      if (valueComment.trim().length) {
+        const comment = {
+          id: new Date().getTime(),
+          authorComment: "Max",
+          message: valueComment,
+          like: false,
+        };
+        dispatch(addNewComment({ comment, idPost: post.id }));
+        setIsCreateComment(!isCreateComment);
+        setValueComment("");
+      } else {
+        setIsCreateComment(!isCreateComment);
+      }
     }
   };
 

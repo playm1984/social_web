@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import Modal from "../Modal";
 import ImageSvg from "../ImageSVG";
 import ProfileChildren from "../Modal/ProfileChildren";
@@ -6,6 +7,7 @@ import ProfileChildren from "../Modal/ProfileChildren";
 import header from "./Header.module.css";
 
 const Header = () => {
+  const { profile } = useSelector((state) => state.UserSlice);
   const [modalProfile, setModalProfile] = useState(false);
 
   const closeModal = () => {
@@ -24,7 +26,7 @@ const Header = () => {
         >
           <ImageSvg
             config={{
-              icon: "Avatar8",
+              icon: `${profile.avatar}`,
               fill: "",
               stroke: "",
               size: 35,
@@ -45,7 +47,10 @@ const Header = () => {
 
       {modalProfile && (
         <Modal close={closeModal} modalTitle="my profile">
-          <ProfileChildren />
+          <ProfileChildren
+            profile={profile}
+            onClose={() => setModalProfile(false)}
+          />
         </Modal>
       )}
     </div>
