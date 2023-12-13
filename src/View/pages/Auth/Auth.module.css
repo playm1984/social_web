@@ -18,3 +18,14 @@
 .auth_form input[type="password"] {
   padding: 4px 8px;
 }
+
+.auth_password_wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.auth_show_password_btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}

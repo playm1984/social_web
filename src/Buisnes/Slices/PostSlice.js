@@ -20,27 +20,7 @@ const initialState = {
     "#foodgasm",
     "#foodpics",
   ],
-  posts: [
-    {
-      id: "01",
-      author: "John",
-      create_date: "01-12-2023",
-      image: "",
-      title_post: "Nature",
-      rait: 4,
-      tags: ["article", "article", "article"],
-      like: true,
-      comments: [
-        {
-          id: "01",
-          authorComment: "John",
-          message:
-            "Free Download Avatar Cap Fashion SVG vector file in monocolor and multicolor type for Sketch and Figma",
-          like: true,
-        },
-      ],
-    },
-  ],
+  posts: [],
 };
 
 const PostSlice = createSlice({

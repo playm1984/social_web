@@ -2,6 +2,7 @@ import { useState } from "react";
 import ImageSvg from "../../ImageSVG/index";
 import { useDispatch } from "react-redux";
 import { changeUserProfile } from "../../../../Buisnes/Slices/UserSlice";
+import { localStorageAction } from "../../../../Buisnes/localStorageAction";
 
 import style from "./ProfileChildren.module.css";
 
@@ -13,6 +14,7 @@ const ProfileChildren = ({ profile, onClose }) => {
     email: profile.email,
     login: profile.login,
     password: profile.password,
+    id: profile.id,
   });
   const [isEdit, setIsEdit] = useState({
     name: false,
@@ -49,6 +51,12 @@ const ProfileChildren = ({ profile, onClose }) => {
 
   const handleProfileChange = (event) => {
     setUser({ ...user, [event.target.name]: event.target.value });
+  };
+
+  const updateUserProfile = () => {
+    dispatch(changeUserProfile(user));
+    localStorageAction.editUserProfile(user);
+    onClose();
   };
 
   return (
@@ -143,10 +151,7 @@ const ProfileChildren = ({ profile, onClose }) => {
       <button
         disabled={false}
         className={style.profileSaveBtn}
-        onClick={() => {
-          dispatch(changeUserProfile(user));
-          onClose();
-        }}
+        onClick={updateUserProfile}
       >
         save
       </button>

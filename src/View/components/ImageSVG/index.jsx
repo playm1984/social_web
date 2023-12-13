@@ -19,6 +19,7 @@ import Avatar7 from "./svg/AvatarIcon/Avatar7.SVG";
 import Avatar8 from "./svg/AvatarIcon/Avatar8.SVG";
 import Avatar9 from "./svg/AvatarIcon/Avatar9.SVG";
 import EyeClose from "./svg/EyeClose.SVG";
+import EyeOpen from "./svg/EyeOpen.SVG";
 
 const ImageSvg = ({ config }) => {
   const svg_collections = {
@@ -40,6 +41,7 @@ const ImageSvg = ({ config }) => {
     Avatar8,
     Avatar9,
     EyeClose,
+    EyeOpen,
   };
 
   const ImageCofig = {

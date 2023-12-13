@@ -7,7 +7,9 @@ const initialState = {
     email: "test@example.com",
     login: "qwerty",
     password: "12345",
+    id: "01",
   },
+  usersDB: null,
 };
 
 const userSlice = createSlice({
@@ -17,9 +19,12 @@ const userSlice = createSlice({
     changeUserProfile: (state, action) => {
       state.profile = action.payload;
     },
+    getUsersFromLS: (state, action) => {
+      state.usersDB = action.payload;
+    },
   },
 });
 
-export const { changeUserProfile } = userSlice.actions;
+export const { changeUserProfile, getUsersFromLS } = userSlice.actions;
 
 export default userSlice.reducer;

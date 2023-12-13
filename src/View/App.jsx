@@ -1,11 +1,15 @@
+import { Route, Routes } from "react-router-dom";
+
 import Blog from "./pages/Blog";
 import Auth from "./pages/Auth";
 
 const App = () => {
   return (
     <div>
-      <Auth />
-      {/* <Blog /> */}
+      <Routes>
+        <Route path="/" element={<Auth />} />
+        <Route path="/main" element={<Blog />} />
+      </Routes>
     </div>
   );
 };
