@@ -6,10 +6,12 @@ import style from "./AddPostChildren.module.css";
 
 const AddPostChildren = ({ close }) => {
   const [titlePost, setTitlePost] = useState("");
+  const [imagePost, setImagePost] = useState("");
   const [errorTitle, setErrorTitle] = useState(false);
   const [tags, setTags] = useState([]);
 
   const { tag_list } = useSelector((state) => state.PostSlice);
+  const { profile } = useSelector((state) => state.UserSlice);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,9 +27,9 @@ const AddPostChildren = ({ close }) => {
       setErrorTitle(false);
       const newPost = {
         id: new Date().getTime(),
-        author: "Test User",
+        author: profile.name,
         create_date: new Date().toLocaleDateString(),
-        image: "",
+        image: imagePost.trim(),
         title_post: titlePost.trim(),
         rait: Math.floor(1 + Math.random() * (5 + 1 - 1)),
         tags,
@@ -44,7 +46,11 @@ const AddPostChildren = ({ close }) => {
   };
 
   const handleChange = (event) => {
-    setTitlePost(event.target.value);
+    if (event.target.name === "imagePost") {
+      setImagePost(event.target.value);
+    } else {
+      setTitlePost(event.target.value);
+    }
   };
 
   const handleSelectChange = (event) => {
@@ -65,6 +71,7 @@ const AddPostChildren = ({ close }) => {
           <input
             type="text"
             placeholder="Название поста"
+            name="titlePost"
             value={titlePost}
             onChange={handleChange}
           />
@@ -72,6 +79,17 @@ const AddPostChildren = ({ close }) => {
             <p className={style.form_titleErrorMessage}>обязательное поле</p>
           ) : null}
         </div>
+
+        <div className={style.form_imagePost}>
+          <input
+            type="text"
+            placeholder="Ссылка на изображения"
+            name="imagePost"
+            value={imagePost}
+            onChange={handleChange}
+          />
+        </div>
+
         <select onChange={handleSelectChange}>
           <option value="hidden" hidden>
             Выберите тэги
@@ -82,6 +100,7 @@ const AddPostChildren = ({ close }) => {
             </option>
           ))}
         </select>
+
         <div className={style.tags}>
           {tags.map((tag, i) => (
             <span key={i} className={style.tag}>

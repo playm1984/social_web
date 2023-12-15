@@ -8,6 +8,7 @@ import {
   changeUserProfile,
   getUsersFromLS,
 } from "../../../Buisnes/Slices/UserSlice";
+import { localStorageAction } from "../../../Buisnes/localStorageAction";
 
 import style from "./Auth.module.css";
 
@@ -58,16 +59,22 @@ const Auth = () => {
       }
     });
 
+    if (isAuth) {
+      if (credentials.remember) {
+        localStorageAction.setDataLocalStorage(
+          localStorageAction.AUTH_USER,
+          userProfile.id
+        );
+      }
+      dispatch(changeUserProfile(userProfile));
+      navigate("/main");
+    }
+
     setCredentials({
       login: "",
       password: "",
       remember: false,
     });
-
-    if (isAuth) {
-      dispatch(changeUserProfile(userProfile));
-      navigate("/main");
-    }
   };
 
   useEffect(() => {

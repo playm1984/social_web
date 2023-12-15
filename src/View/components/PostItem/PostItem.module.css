@@ -35,6 +35,9 @@
   border: 1px solid black;
   border-radius: 8px;
   padding: 8px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
 }
 
 .image {
@@ -42,6 +45,17 @@
   height: 300px;
   border-radius: 4px;
   background-color: rgb(146, 174, 91);
+  position: relative;
+  overflow: hidden;
+}
+
+.image img,
+.image p {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .title {

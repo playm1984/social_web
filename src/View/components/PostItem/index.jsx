@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Comments from "../Comments";
 import ImageSvg from "../ImageSVG";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   toggleLikedPost,
   addNewComment,
@@ -12,6 +12,7 @@ import postItem from "./PostItem.module.css";
 
 const PostItem = ({ post }) => {
   const dispatch = useDispatch();
+  const { profile } = useSelector((state) => state.UserSlice);
   const [isCreateComment, setIsCreateComment] = useState(false);
   const [valueComment, setValueComment] = useState("");
 
@@ -43,7 +44,7 @@ const PostItem = ({ post }) => {
         <div className={postItem.profile}>
           <ImageSvg
             config={{
-              icon: "Avatar2",
+              icon: `${profile.avatar}`,
               fill: "",
               stroke: "",
               size: 20,
@@ -54,7 +55,13 @@ const PostItem = ({ post }) => {
         <p>{post.create_date}</p>
       </div>
       <div className={postItem.image_wrapper}>
-        <div className={postItem.image}></div>
+        <div className={postItem.image}>
+          {post.image.length ? (
+            <img src={post.image} alt="Image" />
+          ) : (
+            <p>Изображение небыло добавлено"</p>
+          )}
+        </div>
       </div>
       <div className={postItem.bottom}>
         <p className={postItem.title}>{post.title_post}</p>

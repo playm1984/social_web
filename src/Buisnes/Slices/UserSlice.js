@@ -22,9 +22,15 @@ const userSlice = createSlice({
     getUsersFromLS: (state, action) => {
       state.usersDB = action.payload;
     },
+    searchUsers: (state, action) => {
+      state.profile = state.usersDB.filter(
+        (user) => user.id === action.payload
+      )[0];
+    },
   },
 });
 
-export const { changeUserProfile, getUsersFromLS } = userSlice.actions;
+export const { changeUserProfile, getUsersFromLS, searchUsers } =
+  userSlice.actions;
 
 export default userSlice.reducer;

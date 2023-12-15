@@ -1,6 +1,8 @@
 const USERS = "users";
 
 export const localStorageAction = {
+  AUTH_USER: "auth_user",
+
   getDataLocalStorage(key) {
     const data = localStorage.getItem(key);
     return JSON.parse(data);
